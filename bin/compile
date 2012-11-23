@@ -1,0 +1,16 @@
+#!/bin/sh
+
+indent() {
+  sed -u 's/^/       /'
+}
+
+
+# Save result of the previous buildpack:
+cat $1/last_pack_release.out > $1/last_pack_release.out.backup
+
+echo "Saving last commit sha to .deploy-sha" | indent
+
+SHA=`git rev-parse HEAD`
+
+cd $1
+echo $SHA > .deploy-sha
