@@ -13,4 +13,5 @@ echo "Saving last commit sha to .deploy-sha" | indent
 SHA=`git rev-parse HEAD`
 
 cd $1
+echo "Last deploy sha: $SHA" | indent
 echo $SHA > .deploy-sha
